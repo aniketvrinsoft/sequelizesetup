@@ -1,0 +1,26 @@
+<div class="d-flex container justify-content-center">
+    <div class="col-sm-6 mt-4">
+        <h1>Register  Now</h1>
+        <form action="/register" class="card card-body" method="post">
+          
+                <% if (typeof errorMessage!=="undefined") {%>  <div class="mb-3 alert alert-danger" role="alert"><%=errorMessage  %> </div> <% } %> 
+            
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Username</label>
+              <input type="text" name="username" value="<%if(typeof printData!=="undefined"){%><%=printData(error,'username','value')%><%}%>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="username" class="form-text text-danger">
+                <% if (typeof printData!=="undefined") {%><%=printData(error,'username','msg')  %>  <% } %> 
+            </div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+              <div id="pass" class="form-text text-danger">
+                <% if (typeof printData!=="undefined") {%><%=printData(error,'password','msg')  %>  <% } %> 
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+    </div>
+  </div>

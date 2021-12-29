@@ -1,0 +1,44 @@
+<div class="container d-flex justify-content-center">
+    <div class="col-sm-8 mt-4">
+        <div class="card card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">UserRole</th>
+                        <th scope="col">Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% usersData.rows.map((e,i)=>{ %>
+
+                        <tr>
+                            <th scope="row">
+                                <%-i+1 %>
+                            </th>
+                            <td>
+                                <%-e.username %>
+                            </td>
+                            <td>
+                                <%-e.userRole %>
+                            </td>
+                            <td>
+                                <%-e.name %>
+                            </td>
+                        </tr>
+
+                        <% }) %>
+
+
+                </tbody>
+            </table>
+            <nav aria-label">
+                <ul class="pagination">
+                    <%-pagination%>
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,3 @@
+// create node project
+npm init
+npm i express nodemon sequelize dotenv ejs   
