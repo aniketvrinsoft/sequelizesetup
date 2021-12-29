@@ -21,7 +21,7 @@ const User = sequelize.define("user", {
   userRole: {
     type: Sequelize.ENUM,
     values: ['normal', 'admin'],
-    defaultValue: 'normal'
+    defaultValue: 'admin'
   },
   name: {
     type: DataTypes.TEXT,
