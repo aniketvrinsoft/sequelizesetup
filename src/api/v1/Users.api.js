@@ -10,6 +10,7 @@ export const GetUsers = async (req, res) => {
     const result = await User.findAndCountAll({
         limit: limit,
         offset: offset,
+        attributes: { exclude: ['password'] }
     });
     const hasMore = (limit * page) < result.count ? true : false;
     if (result.rows.length > 0) {
