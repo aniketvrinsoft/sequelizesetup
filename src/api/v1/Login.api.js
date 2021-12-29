@@ -12,7 +12,6 @@ const Login = async (req, res) => {
     }
     // if validation pass.. check from database
 
-
     const { username, password } = req.body;
     const user = await User.findOne({
         where: { username: username },
@@ -28,8 +27,6 @@ const Login = async (req, res) => {
             return res.json(jsonGenerate(Response.SUCCESS, "SUCCESS", data))
         }
     }
-
-
 
     res.json(jsonGenerate(Response.AUTH_ERROR, "Username or Password is incorrect"))
 }

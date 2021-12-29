@@ -2,6 +2,7 @@ export const Response = {
     SUCCESS: 200,
     VALIDATION_ERROR: 201,
     AUTH_ERROR: 202,
+    UNPROCESSABLE_DATA: 203,
     NOT_FOUND: 404,
 
 }
