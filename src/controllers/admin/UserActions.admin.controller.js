@@ -1,6 +1,7 @@
 import { validationResult } from "express-validator";
 import User from "../../models/User.model.js"
-import { printData } from "../../utils/helper.js";
+import { Response } from "../../utils/constants.js";
+import { jsonGenerate, printData } from "../../utils/helper.js";
 export const DeleteUser = async (req, res) => {
     const prevUrl = req.query.prevUrl === undefined ? "/admin/dashboard" : "/admin" + req.query.prevUrl;
     await User.destroy({
@@ -78,4 +79,19 @@ export const EditUserPOST = async (req, res) => {
         userInfo: userInfo, printData: printData,
         error: error.mapped()
     })
+}
+
+
+
+export const GetUserByToken = async (req, res) => {
+    console.log(req.userId)
+    const userInfo = await User.findOne({
+        where: { id: req.userId }
+    });
+    if (userInfo) {
+        return res.json(jsonGenerate(Response.SUCCESS, "success", userInfo))
+    }
+
+    res.status(404).send("Not Found")
+
 }
